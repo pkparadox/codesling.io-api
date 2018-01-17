@@ -316,3 +316,35 @@ export const dropFriendTable = async () => {
     error('error dropping friends table');
   }
 };
+
+export const createMessageTable = async () => {
+  try {
+    await db.queryAsync(
+      `
+      CREATE TABLE IF NOT EXISTS messages
+      (
+        id SERIAL,
+        message VARCHAR(255) NOT NULL,
+        PRIMARY KEY(id),
+        user_id INT NOT NULL,
+        CONSTRAINT fk_messages_user_id
+          FOREIGN KEY(user_id) REFERENCES users(id)
+      )
+      `
+    )
+    success('successfully created messsages table');
+  } catch (err) {
+    error('error creating messages table ', err);
+  }
+};
+
+export const dropMessageTable = async () => {
+  try {
+    await db.queryAsync(
+      `DROP TABLE IF EXISTS messages`
+    )
+    success('successfully dropped messages table');
+  } catch (err) {
+    error('error dropping messages table');
+  }
+};

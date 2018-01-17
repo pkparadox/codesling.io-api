@@ -53,7 +53,7 @@ const clientRun = async ({ io, room }, payload) => {
 };
 
 const clientMessage = ({ io, room }, payload) => {
-  log('client message heard');
+  log('client message heard', payload);
   serverMessage({ io, room }, payload);
 };
 
