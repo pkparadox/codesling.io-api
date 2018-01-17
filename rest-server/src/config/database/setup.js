@@ -16,6 +16,8 @@ import {
   dropFriendTable,
   dropUsersChallengesTable,
   useDatabase,
+  createMessageTable,
+  dropMessageTable
 } from '../../lib/SQL';
 
 const setup = async () => {
@@ -26,6 +28,7 @@ const setup = async () => {
   await dropFriendTable();
   await dropUserTable();
   await dropChallengeTable();
+  await dropMessageTable();
   // await dropSabotageTable();
   await createDatabase();
   await createUserTable();
@@ -34,6 +37,7 @@ const setup = async () => {
   await createTestCaseTable();
   await createFriendTable();
   await createUsersChallengesTable();
+  await createMessageTable();
   // await createSabotageTable();
   process.exit();
 };
