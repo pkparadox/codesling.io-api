@@ -16,7 +16,6 @@ export const addMessageController = async (req, res) => {
     const { rows } = await addMessageQuery(req.body);
     console.log('rows on rows', rows);
     success('addMessageController - successfully added Message ', rows[0]);
-    req.body.message_id = rows[0].id;
     return res.status(200).send(rows[0]);
   } catch (err) {
     error('addMessageController - error= ', error);

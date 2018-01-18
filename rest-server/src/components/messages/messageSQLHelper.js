@@ -9,6 +9,11 @@ export const addMessageHelper = (body) => {
 
 export const getAllMessages = () => {
   return `
-    SELECT * FROM messages
+    SELECT 
+      * 
+    FROM 
+      messages
+    ORDER BY
+      id DESC
   `;
 }
