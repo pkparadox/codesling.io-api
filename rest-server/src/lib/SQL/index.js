@@ -324,7 +324,8 @@ export const createMessageTable = async () => {
       CREATE TABLE IF NOT EXISTS messages
       (
         id SERIAL PRIMARY KEY,
-        message VARCHAR(255) NOT NULL
+        message VARCHAR(255) NOT NULL,
+        username VARCHAR(255) REFERENCES users (username) 
       )
       `
     )
