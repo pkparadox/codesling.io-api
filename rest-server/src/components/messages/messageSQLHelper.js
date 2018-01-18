@@ -17,7 +17,6 @@ export const getAllMessages = () => {
       id DESC
   `;
 }
-<<<<<<< HEAD
 export const deleteAllMessagesHelper = (body) => {
   console.log('del bod', body);
   return `
@@ -27,5 +26,3 @@ export const deleteAllMessagesHelper = (body) => {
       roomname = ('${body.roomname}')
   `;
 }
-=======
->>>>>>> [add/delete] - deleting messed up message route files and adding improved ones that I understand.
