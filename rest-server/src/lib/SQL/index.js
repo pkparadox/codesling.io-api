@@ -64,7 +64,7 @@ export const createUserTable = async () => {
       (
       id SERIAL,
       email VARCHAR(255) UNIQUE NOT NULL,
-      username VARCHAR(255) NOT NULL,
+      username VARCHAR(255) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL,
       clout INT,
       kdr INT,
@@ -325,7 +325,7 @@ export const createMessageTable = async () => {
       (
         id SERIAL PRIMARY KEY,
         message VARCHAR(255) NOT NULL,
-        username VARCHAR(255) REFERENCES users (username) 
+        username VARCHAR(255) REFERENCES users(username) 
       )
       `
     )
