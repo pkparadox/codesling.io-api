@@ -1,6 +1,7 @@
 import {
   addMessageQuery,
-  getMessagesQuery
+  getMessagesQuery,
+  deleteMessagesQuery
 } from './messageQuery';
 import {
   success,
@@ -25,11 +26,19 @@ export const addMessageController = async (req, res) => {
 export const getMessagesController = async (req, res) => {
   try {
     const { rows } = await getMessagesQuery();
-    console.log('row in rows?', rows.data);
     success('get messages worked, bitch', rows);
     return res.status(200).send(rows);
   } catch (err) {
     error('ooops did not get messages', err);
+  }
+}
+export const deleteAllMessages = async (req, res) => {
+  try {
+    const { rows } = await deleteMessagesQuery();
+    success('deleted all messsages', rows);
+    return res.status(200).send(rows);
+  } catch (err) {
+    error('trouble deleting rows', err);
   }
 }
 

@@ -1,9 +1,9 @@
 export const addMessageHelper = (body) => {
-  console.log('body in addmesshelp', body.message);
+  console.log('body in addmesshelp', body);
   return `
-      INSERT INTO messages (message)
-      VALUES ('${body.message}')
-      RETURNING message
+      INSERT INTO messages (message, username)
+      VALUES ('${body.message}', '${body.username}')
+      RETURNING message, username
     `;
 }
 
@@ -15,5 +15,10 @@ export const getAllMessages = () => {
       messages
     ORDER BY
       id DESC
+  `;
+}
+export const deleteAllMessagesHelper = () => {
+  return `
+    TRUNCATE messages
   `;
 }
