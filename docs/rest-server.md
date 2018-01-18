@@ -85,5 +85,18 @@ Endpoints
         content,
         challenge_id
       }
-
+'/api/messages'
+  - POST '/addMessage'
+    request
+      body: {
+        username,
+        message,
+        roomname
+      }
+  - GET '/getMessages'
+  - DELETE '/deleteMessages'
+    request
+      body: {
+        roomname
+      }
 ```
