@@ -6,3 +6,9 @@ export const addMessageHelper = (body) => {
       RETURNING message
     `;
 }
+
+export const getAllMessages = () => {
+  return `
+    SELECT * FROM messages
+  `;
+}

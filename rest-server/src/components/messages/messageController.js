@@ -1,5 +1,6 @@
 import {
-  addMessageQuery
+  addMessageQuery,
+  getMessagesQuery
 } from './messageQuery';
 import {
   success,
@@ -13,6 +14,7 @@ export const addMessageController = async (req, res) => {
      * 
      */
     const { rows } = await addMessageQuery(req.body);
+    console.log('rows on rows', rows);
     success('addMessageController - successfully added Message ', rows[0]);
     req.body.message_id = rows[0].id;
     return res.status(200).send(rows[0]);
@@ -20,4 +22,15 @@ export const addMessageController = async (req, res) => {
     error('addMessageController - error= ', error);
   }
 };
+
+export const getMessagesController = async (req, res) => {
+  try {
+    const { rows } = await getMessagesQuery();
+    console.log('row in rows?', rows.data);
+    success('get messages worked, bitch', rows);
+    return res.status(200).send(rows);
+  } catch (err) {
+    error('ooops did not get messages', err);
+  }
+}
 
