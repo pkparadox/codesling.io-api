@@ -33,9 +33,9 @@ export const getMessagesQuery = async () => {
     error('getMessageQuery', err);
   }
 }
-export const deleteMessagesQuery = async () => {
+export const deleteMessagesQuery = async (body) => {
   try {
-    const queryString = deleteAllMessagesHelper();
+    const queryString = deleteAllMessagesHelper(body);
     const data = await db.queryAsync(queryString);
     success('deleteMessagequery', data);
     return data;

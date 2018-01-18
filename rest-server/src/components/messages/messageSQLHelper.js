@@ -1,9 +1,9 @@
 export const addMessageHelper = (body) => {
   console.log('body in addmesshelp', body);
   return `
-      INSERT INTO messages (message, username)
-      VALUES ('${body.message}', '${body.username}')
-      RETURNING message, username
+      INSERT INTO messages (message, username, roomname)
+      VALUES ('${body.message}', '${body.username}', '${body.roomname}')
+      RETURNING message, username, roomname
     `;
 }
 
@@ -17,8 +17,12 @@ export const getAllMessages = () => {
       id DESC
   `;
 }
-export const deleteAllMessagesHelper = () => {
+export const deleteAllMessagesHelper = (body) => {
+  console.log('del bod', body);
   return `
-    TRUNCATE messages
+    DELETE FROM
+      messages
+    WHERE
+      roomname = ('${body.roomname}')
   `;
 }

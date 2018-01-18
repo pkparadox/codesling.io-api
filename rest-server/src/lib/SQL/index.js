@@ -325,7 +325,8 @@ export const createMessageTable = async () => {
       (
         id SERIAL PRIMARY KEY,
         message VARCHAR(255) NOT NULL,
-        username VARCHAR(255) NOT NULL 
+        username VARCHAR(255) NOT NULL,
+        roomname VARCHAR(255) NOT NULL
       )
       `
     )
