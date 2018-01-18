@@ -1,6 +1,7 @@
 import db from '../../config/database';
 import {
-  addMessageHelper
+  addMessageHelper,
+  getAllMessages
 } from './messageSQLHelper';
 import {
   success,
@@ -18,3 +19,14 @@ export const addMessageQuery = async (body) => {
     error('addMessageQuery - error= ', err);
   }
 };
+
+export const getMessagesQuery = async () => {
+  try {
+    const queryString = getAllMessages();
+    const data = await db.queryAsync(queryString);
+    success('getMessageQuery', data);
+    return data;
+  } catch (err) {
+    error('getMessageQuery', err);
+  }
+}
