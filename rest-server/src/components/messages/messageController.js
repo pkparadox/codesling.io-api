@@ -8,6 +8,7 @@ import {
 
 export const addMessageController = async (req, res) => {
   try {
+    console.log('reqbody in messcont',req.body);
     /**
      * 
      */

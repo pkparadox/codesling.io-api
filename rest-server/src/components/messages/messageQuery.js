@@ -8,6 +8,7 @@ import {
 } from '../../lib/log';
 
 export const addMessageQuery = async (body) => {
+  console.log('body in addmess', body);
   try {
     const queryString = addMessageHelper(body);
     const data = await db.queryAsync(queryString);

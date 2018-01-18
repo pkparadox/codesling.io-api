@@ -1,7 +1,8 @@
-export const addMessageHelper = ({ message }) => {
+export const addMessageHelper = (body) => {
+  console.log('body in addmesshelp', body.message);
   return `
       INSERT INTO messages (message)
-      VALUES (${message})
+      VALUES ('${body.message}')
       RETURNING message
     `;
 }
