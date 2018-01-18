@@ -33,10 +33,8 @@ export const getMessagesController = async (req, res) => {
   }
 }
 export const deleteAllMessages = async (req, res) => {
-  console.log('reqbody in delete', req.body);
   try {
-    const { rows } = await deleteMessagesQuery(req.body);
-    console.log('delete rows', rows);
+    const { rows } = await deleteMessagesQuery();
     success('deleted all messsages', rows);
     return res.status(200).send(rows);
   } catch (err) {

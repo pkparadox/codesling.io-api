@@ -26,3 +26,4 @@ export const deleteAllMessagesHelper = (body) => {
       roomname = ('${body.roomname}')
   `;
 }
+
