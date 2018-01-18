@@ -324,9 +324,21 @@ export const createMessageTable = async () => {
       CREATE TABLE IF NOT EXISTS messages
       (
         id SERIAL PRIMARY KEY,
+<<<<<<< HEAD
         message VARCHAR(255) NOT NULL,
+<<<<<<< HEAD
         username VARCHAR(255) NOT NULL,
         roomname VARCHAR(255) NOT NULL
+=======
+<<<<<<< HEAD
+        username VARCHAR(255) REFERENCES users(username) 
+=======
+        PRIMARY KEY(id)
+>>>>>>> [add/delete] - deleting messed up message route files and adding improved ones that I understand.
+=======
+        message VARCHAR(255) NOT NULL
+>>>>>>> [fix] - properly storing messages to the db and getting a response back to the client.  Need to figure out foreign key and finding username.
+>>>>>>> [fix] - properly storing messages to the db and getting a response back to the client.  Need to figure out foreign key and finding username.
       )
       `
     )
