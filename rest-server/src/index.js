@@ -3,6 +3,7 @@ import http from 'http';
 import App from './config/express';
 import { success } from './lib/log';
 import './config/database';
+import './config/database/mongo';
 // import './config/database/setup';
 
 const app = App.express;

@@ -64,7 +64,7 @@ export const createUserTable = async () => {
       (
       id SERIAL,
       email VARCHAR(255) UNIQUE NOT NULL,
-      username VARCHAR(255) NOT NULL,
+      username VARCHAR(255) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL,
       clout INT,
       kdr INT,
@@ -294,9 +294,9 @@ export const createFriendTable = async () => {
         CONSTRAINT friends_pk
         PRIMARY KEY(id),
         CONSTRAINT fk_friends_user_id
-        FOREIGN KEY(user_id) REFERENCES users(id),
+          FOREIGN KEY(user_id) REFERENCES users(id),
         CONSTRAINT fk_friends_friend_id
-        FOREIGN KEY(friend_id) REFERENCES users(id)
+          FOREIGN KEY(friend_id) REFERENCES users(id)
       )
       `
     )
@@ -314,5 +314,35 @@ export const dropFriendTable = async () => {
     success('successfully dropped friends table');
   } catch (err) {
     error('error dropping friends table');
+  }
+};
+
+export const createMessageTable = async () => {
+  try {
+    await db.queryAsync(
+      `
+      CREATE TABLE IF NOT EXISTS messages
+      (
+        id SERIAL PRIMARY KEY,
+        message VARCHAR(255) NOT NULL,
+        username VARCHAR(255) NOT NULL,
+        roomname VARCHAR(255) NOT NULL
+      )
+      `
+    )
+    success('successfully created messsages table');
+  } catch (err) {
+    error('error creating messages table ', err);
+  }
+};
+
+export const dropMessageTable = async () => {
+  try {
+    await db.queryAsync(
+      `DROP TABLE IF EXISTS messages`
+    )
+    success('successfully dropped messages table');
+  } catch (err) {
+    error('error dropping messages table');
   }
 };
