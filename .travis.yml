@@ -7,7 +7,7 @@ services: postgresql
 before_script:
   - sudo apt-get -qq update # qq for less output
   - createuser root
-  - createdb codesling-travis
+  - createdb codesling
   - yarn db:setup:rest-server
 install:
   - yarn
