@@ -6,7 +6,6 @@ cache:
 services: postgresql
 before_script:
   - sudo apt-get -qq update # qq for less output
-  - brew install yarn
   - brew install postgresql
   - brew services start postgresql
   - createuser root
